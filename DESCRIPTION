@@ -1,0 +1,20 @@
+Package: BiocVersion
+Version: 3.7.0 
+Title: Set the appropriate version of Bioconductor packages 
+Description: This package provides repository information for the appropriate
+    version of Bioconductor. 
+Authors@R: c(
+    person("Martin", "Morgan", email = "martin.morgan@roswellpark.org",
+        role = "aut"),
+    person("Marcel", "Ramos", email = "marcel.ramos@roswellpark.org",
+        role = "ctb"),
+    person("Bioconductor", "Package Maintainer",
+        email  = "maintainer@bioconductor.org",
+        role = c("ctb", "cre")))
+biocViews: Infrastructure
+Depends: R (>= 3.5.0),
+    R (<= 3.5.4)
+License: Artistic-2.0
+Encoding: UTF-8
+LazyData: true
+
