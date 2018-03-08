@@ -1,5 +1,5 @@
 Package: BiocVersion
-Version: 3.7.1
+Version: 3.7.2
 Title: Set the appropriate version of Bioconductor packages 
 Description: This package provides repository information for the appropriate
     version of Bioconductor. 
@@ -14,7 +14,9 @@ Authors@R: c(
 biocViews: Infrastructure
 Depends: R (>= 3.5.0),
     R (<= 3.5.4)
+Imports:
+    utils
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
-
+RoxygenNote: 6.0.1
