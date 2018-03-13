@@ -15,5 +15,23 @@
 #'
 #' @export biocVersion
 biocVersion <- function() {
-    utils::packageVersion("BiocVersion")[1, 1:2]
+    pkg_ver <- utils::packageVersion("BiocVersion")[1, 1:2]
+    if (BiocVersion:::.options$get("BioC_Version") == "devel")
+        pkg_ver
+    else
+        .subtractVersion(pkg_ver, 1L)
+}
+
+.subtractVersion <- function(pkg_version, digit) {
+    if (!is.package_version(pkg_version))
+        stop("<internal> Provide a valid package version")
+    as.numeric_version(paste(pkg_version$major,
+        pkg_version$minor - digit, sep = "."))
+}
+
+.addVersion <- function(pkg_version, digit) {
+    if (!is.package_version(pkg_version))
+        stop("<internal> Provide a valid package version")
+    as.numeric_version(paste(pkg_version$major,
+        pkg_version$minor + digit, sep = "."))
 }
