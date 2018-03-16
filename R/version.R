@@ -13,11 +13,8 @@
 #'
 #' version()
 #'
+#' @importFrom utils packageVersion
 #' @export
 version <- function() {
-    pkg_ver <- utils::packageVersion("BiocVersion")[1, 1:2]
-    if (.isDevel(pkg_ver))
-        pkg_ver
-    else
-        .subtractVersion(pkg_ver, 1L)
+    utils::packageVersion("BiocVersion")[1, 1:2]
 }
