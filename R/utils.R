@@ -1,23 +1,19 @@
-.onLoad <- function (...) {
-    .options$set("BioC_Version", "devel")
+.subtractVersion <- function(pkg_version, digit) {
+    if (!is.package_version(pkg_version))
+        stop("<internal> Provide a valid package version")
+    as.numeric_version(paste(pkg_version$major,
+        pkg_version$minor - digit, sep = "."))
 }
 
-.options <- local({
-    options <- list(
-        versions = "BioC_Version"
-    )
-    env <- new.env(parent=emptyenv())
+.addVersion <- function(pkg_version, digit) {
+    if (!is.package_version(pkg_version))
+        stop("<internal> Provide a valid package version")
+    as.numeric_version(paste(pkg_version$major,
+        pkg_version$minor + digit, sep = "."))
+}
 
-    list(set = function(variable, value) {
-        stopifnot(
-            is.character(variable), length(variable) == 1L, !is.na(variable),
-            is.character(value), length(value) == 1L, !is.na(value),
-            variable %in% unlist(options, use.names = FALSE)
-        )
-        env[[variable]] <- value
-
-        }, get = function(variable) {
-        stopifnot(variable %in% unlist(options, use.names = FALSE))
-        env[[variable]]
-    })
-})
+.isDevel <- function(vers) {
+    if (!is.package_version(vers))
+        stop("<internal> Provide a valid package version class")
+    as.logical(vers$minor %% 2)
+}
