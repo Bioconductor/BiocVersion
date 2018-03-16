@@ -11,12 +11,12 @@
 #' @keywords environment
 #' @examples
 #'
-#' biocVersion()
+#' version()
 #'
-#' @export biocVersion
-biocVersion <- function() {
+#' @export
+version <- function() {
     pkg_ver <- utils::packageVersion("BiocVersion")[1, 1:2]
-    if (BiocVersion:::.options$get("BioC_Version") == "devel")
+    if (.isDevel(pkg_ver))
         pkg_ver
     else
         .subtractVersion(pkg_ver, 1L)
