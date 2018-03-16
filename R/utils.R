@@ -11,9 +11,3 @@
     as.numeric_version(paste(pkg_version$major,
         pkg_version$minor + digit, sep = "."))
 }
-
-.isDevel <- function(vers) {
-    if (!is.package_version(vers))
-        stop("<internal> Provide a valid package version class")
-    as.logical(vers$minor %% 2)
-}
