@@ -12,7 +12,7 @@ Authors@R: c(
         email  = "maintainer@bioconductor.org",
         role = c("ctb", "cre")))
 biocViews: Infrastructure
-Depends: R (>= 4.2.0)
+Depends: R (>= 4.3.0)
 License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
