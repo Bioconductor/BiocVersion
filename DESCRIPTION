@@ -2,7 +2,9 @@ Package: BiocVersion
 Version: 3.18.0
 Title: Set the appropriate version of Bioconductor packages 
 Description: This package provides repository information for the appropriate
-    version of Bioconductor. 
+    version of Bioconductor. The Bioconductor version is obtained from the
+    package's DESCRIPTION file. BiocManager consults this package's DESCRIPTION
+    file to determine a repository's Bioconductor version.
 Authors@R: c(
     person("Martin", "Morgan", email = "martin.morgan@roswellpark.org",
         role = "aut"),
@@ -13,7 +15,14 @@ Authors@R: c(
         role = c("ctb", "cre")))
 biocViews: Infrastructure
 Depends: R (>= 4.3.0)
+Suggests:
+    BiocManager,
+    BiocStyle,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+BugReports: https://github.com/Bioconductor/BiocVersion/issues
+URL: https://github.com/Bioconductor/BiocVersion
 License: Artistic-2.0
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 6.0.1

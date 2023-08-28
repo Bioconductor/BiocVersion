@@ -1,0 +1,60 @@
+---
+title: "BiocVersion: Identify Bioconductor Version"
+author:
+- name: Martin Morgan
+  affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY
+- name: Marcel Ramos
+  affiliation: Roswell Park Comprehensive Cancer Center, Buffalo, NY
+date: "`r BiocStyle::doc_date()`"
+vignette: |
+  %\VignetteIndexEntry{BiocVersion}
+  %\VignetteEngine{knitr::markdown}
+  %\VignetteEncoding{UTF-8}
+output:
+  BiocStyle::html_document:
+    toc_float: true
+Package: BiocVersion
+---
+
+# Introduction
+
+This package provides a way to obtain the ground-truth Bioconductor version
+because it lives in the repository that it versions. When a new version is
+released, the Bioconductor version is reflected in the packages `DESCRIPTION`
+file.
+
+# Installation
+
+```{r,eval=FALSE}
+if (!require("BiocManager", quietly = TRUE)
+    install.packages("BiocManager")
+
+BiocManager::install("BiocVersion")
+```
+
+# Load packages
+
+```{r,include=TRUE,results="hide",message=FALSE,warning=FALSE}
+library(BiocManager)
+library(BiocVersion)
+```
+
+# Bioconductor Version
+
+To obtain the Bioconductor version, `BiocManager` employs a method such
+as:
+
+```{r}
+ver <- packageVersion("BiocVersion")
+package_version(ver[, 1:2])
+```
+
+```{r}
+version()
+```
+
+# Session Information
+
+```{r}
+sessionInfo()
+```
